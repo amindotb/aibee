@@ -45,7 +45,7 @@ export class ProductController {
   }
 
   @Get('/discount/:id')
-  discount(@Param('id', ParseIntPipe) id: number): Promise<Product> {
+  discount(@Param('id', ParseIntPipe) id: number): Promise<any> {
     return this.service.discount(id);
   }
 }
