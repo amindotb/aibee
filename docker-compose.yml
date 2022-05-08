@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:14.1-alpine
+    container_name: aibee-db
+    restart: always
+    environment:
+      - POSTGRES_DB=bee
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=changeme
+    ports:
+      - '5432:5432'
+
+  app:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: aibee-app
+    depends_on:
+      - db
+    environment:
+      - APP_PORT=3000
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASS=changeme
+      - DB_NAME=bee
+    ports:
+      - '3000:3000'
+    restart: always
+    command: npm start

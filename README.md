@@ -16,8 +16,8 @@ $ npm start
 ```
 Navigate to `/docs/products` or `/docs/categories` to see Swagger documents.
 
-## Running the app
-
+## Running standalone app
+To run the app stand alone:
 ```bash
 # development
 $ npm run start
@@ -27,6 +27,14 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+```
+
+
+## Running app on Docker
+To run the app on top the Docker:
+```bash
+# Simply just
+docker-compose up
 ```
 
 ## Test
