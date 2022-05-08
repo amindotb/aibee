@@ -1,20 +1,32 @@
 # AI-BEE
-Albee project.
+Albee assessment project.
+
+## Discriminator
+### TL;DR
+This project has been created based on AI-Bee assessment. Some of the project descriptions were not clear to me so I decided to send an email but I didn't get any answer until now.  
+I provide my questions below here and hope to be seen and complete the rest of it.
+
+
+At the test description, mentioned: " Input: product code or product name, the user's ID, and the invoice final amount. "
+1. : Does the product have a price on its model, or should we send the amount (like what the above says) to compute the discount? Also, by according to the description it says, return discount (value) or -1. What should we do with this amount or price?
+2. : Why should we use "user's ID"? I think a product will be selected by id, and by considering its category discount and its price, we can calculate the discount. So what is this "user's ID" mean?
+
 
 ## Installation
-First things first, create a file with `.env` name in root directory like `.env.example` file.
-Run
+First things first, create a file with `.env` name in root directory like `.env.example` file.  
+Run the below command to install dependencies:
 ```
 $ npm install
 ```
-to install dependencies.
+
 
 ## Docs
 Run
 ```
 $ npm start
 ```
-Navigate to `/docs/products` or `/docs/categories` to see Swagger documents.
+and navigate to `host:port/docs/products` or `host:port/docs/categories` to see Swagger documents.
+  
 
 ## Running standalone app
 To run the app stand alone:
@@ -31,11 +43,12 @@ $ npm run start:prod
 
 
 ## Running app on Docker
-To run the app on top the Docker:
+To run the app on top the Docker with related dependencies:
 ```bash
 # Simply just
 docker-compose up
 ```
+  
 
 ## Test
 
@@ -52,7 +65,13 @@ $ npm run test:cov
 
 
 ## What Next
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Add price to products.
+- Add a shopping cart to hold each quantity of products.
+- Complete user authentication.
+- User profile.
+- Extra discount with discount codes.
+- Store the user activity.
+- System monitoring.
+- System logging.
+- Complete integration tests.
 
