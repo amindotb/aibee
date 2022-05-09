@@ -7,7 +7,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Category } from './category.model';
 import { CreateDto } from './category.dto';
-import { Messages } from '../shared/messages';
+import { Messages } from '../shared/messages.constant';
 
 @Injectable()
 export class CategoryService {
@@ -52,14 +52,15 @@ export class CategoryService {
       throw new ConflictException(Messages.ALREADY_EXISTS);
     }
 
-    category = await this.repository.findOne({
-      where: {
-        parent: body.parent,
-      },
-    });
-
-    if (!category) {
-      throw new ConflictException('Parent' + Messages.NOT_FOUND);
+    if (body.parent) {
+      category = await this.repository.findOne({
+        where: {
+          id: +body.parent,
+        },
+      });
+      if (!category) {
+        throw new ConflictException('Parent ' + Messages.NOT_FOUND);
+      }
     }
 
     category = new Category();
@@ -98,6 +99,10 @@ export class CategoryService {
     } else {
       throw new NotFoundException(Messages.NOT_FOUND);
     }
+  }
+
+  async truncate(): Promise<any> {
+    return this.repository.delete(1);
   }
 
   async deep(id: number, maxDigging = 0) {

@@ -18,6 +18,6 @@ export class Category {
   @JoinColumn()
   parent?: Category;
 
-  @Column({ default: 0 })
+  @Column({ default: 0, type: 'float' })
   discount: number;
 }
