@@ -9,7 +9,7 @@ import {
   Query,
   ParseIntPipe,
 } from '@nestjs/common';
-import { CreateDto, UpdateDto } from './product.dto';
+import { CreateDto, UpdateDto, DiscountDto } from './product.dto';
 import { ProductService } from './product.service';
 import { Product } from './product.model';
 import { ApiTags } from '@nestjs/swagger';
@@ -44,8 +44,8 @@ export class ProductController {
     return this.service.remove(id);
   }
 
-  @Get('/discount/:id')
-  discount(@Param('id', ParseIntPipe) id: number): Promise<any> {
-    return this.service.discount(id);
+  @Post('/discount')
+  discount(@Body() discountDto: DiscountDto) {
+    return this.service.discount(discountDto);
   }
 }

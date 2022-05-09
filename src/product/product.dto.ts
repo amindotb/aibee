@@ -10,7 +10,6 @@ export class CreateDto {
   name: string;
 
   @IsNumber()
-  @IsNotEmpty()
   @ApiProperty({
     description: 'The category id of a product',
     default: null,
@@ -27,10 +26,25 @@ export class UpdateDto {
   name: string;
 
   @IsNumber()
-  @IsNotEmpty()
   @ApiProperty({
     description: 'The category id of a product',
     default: null,
   })
   category: number;
+}
+
+export class DiscountDto {
+  @IsNumber()
+  @IsNotEmpty()
+  @ApiProperty({
+    description: 'The id of a product',
+  })
+  id: number;
+
+  @IsNumber()
+  @IsNotEmpty()
+  @ApiProperty({
+    description: 'The price of a order',
+  })
+  price: number;
 }

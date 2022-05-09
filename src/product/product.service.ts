@@ -6,8 +6,8 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Product } from './product.model';
-import { CreateDto } from './product.dto';
-import { Messages } from '../shared/messages';
+import { CreateDto, DiscountDto } from './product.dto';
+import { Messages } from '../shared/messages.constant';
 import { CategoryService } from '../category/category.service';
 
 const MAX_DIGGING = 3;
@@ -25,9 +25,9 @@ export class ProductService {
     const take = 10;
     const skip = (page - 1) * take;
     return this.repository.find({
-      where: {},
       take: 10,
       skip,
+      relations: ['category'],
     });
   }
 
@@ -93,11 +93,13 @@ export class ProductService {
     }
   }
 
-  async discount(id: number): Promise<any> {
+  async discount(body: DiscountDto): Promise<any> {
+    const price = body.price;
+    let finalPrice = body.price;
     let discount = -1;
     const product = await this.repository.findOne({
       where: {
-        id,
+        id: body.id,
       },
       relations: ['category', 'category.parent'],
     });
@@ -115,6 +117,9 @@ export class ProductService {
       );
     }
 
-    return { discount };
+    if (discount !== -1) {
+      finalPrice = price - (price * discount) / 100;
+    }
+    return { price, finalPrice, discount };
   }
 }
