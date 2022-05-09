@@ -1,14 +1,16 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { ProductModule } from './product/product.module';
-import { CategoryModule } from './category/category.module';
-import { Product } from './product/product.model';
-import { Category } from './category/category.model';
+import { CategoryService } from '../category/category.service';
+import { ProductService } from '../product/product.service';
+import { CategoryModule } from '../category/category.module';
+import { ProductModule } from '../product/product.module';
+import { Seed } from './seed.service';
+import { Product } from '../product/product.model';
+import { Category } from '../category/category.model';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
+  providers: [Seed],
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
@@ -32,7 +34,5 @@ import { ConfigModule } from '@nestjs/config';
     ProductModule,
     CategoryModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
-export class AppModule {}
+export class SeedModule {}

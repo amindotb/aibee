@@ -19,6 +19,15 @@ Run the below command to install dependencies:
 $ npm install
 ```
 
+## Seeding db
+To stat working with app you may need some sample data. You can run below command to seed your db with sample data.
+```
+$ npm run seed
+```
+⚠ Important: You need to clear your database completely before run this script. 
+  
+
+
 
 ## Docs
 Run
