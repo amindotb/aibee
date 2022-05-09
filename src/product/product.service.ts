@@ -20,7 +20,7 @@ export class ProductService {
     private readonly categoryService: CategoryService,
   ) {}
 
-  async list(page: number): Promise<Product[]> {
+  async list(page = 1): Promise<Product[]> {
     page = page ?? 1;
     const take = 10;
     const skip = (page - 1) * take;
@@ -47,6 +47,7 @@ export class ProductService {
   }
 
   async create(body: CreateDto): Promise<Product> {
+    let category = null;
     let product: Product = await this.repository.findOne({
       where: {
         name: body.name,
@@ -57,7 +58,9 @@ export class ProductService {
       throw new ConflictException(Messages.ALREADY_EXISTS);
     }
 
-    const category = await this.categoryService.find(body.category);
+    if (body.category) {
+      category = await this.categoryService.find(body.category);
+    }
 
     product = new Product();
 

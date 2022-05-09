@@ -16,13 +16,14 @@ export class CategoryService {
     private repository: Repository<Category>,
   ) {}
 
-  async list(page: number): Promise<Category[]> {
+  async list(page = 1): Promise<Category[]> {
     page = page ?? 1;
     const take = 10;
     const skip = (page - 1) * take;
     return this.repository.find({
       take: 10,
       skip,
+      relations: ['parent'],
     });
   }
 
@@ -59,7 +60,7 @@ export class CategoryService {
         },
       });
       if (!category) {
-        throw new ConflictException('Parent ' + Messages.NOT_FOUND);
+        throw new ConflictException(Messages.NOT_FOUND);
       }
     }
 
