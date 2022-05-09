@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { CategoryService } from '../category/category.service';
-import { ProductService } from '../product/product.service';
 import { CategoryModule } from '../category/category.module';
 import { ProductModule } from '../product/product.module';
 import { Seed } from './seed.service';
