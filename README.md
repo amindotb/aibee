@@ -2,22 +2,23 @@
 Albee assessment project.
 
 ## Discriminator
-### TL;DR
-This project has been created based on AI-Bee assessment. I did not add authentication because I think it's not something it's not something tricky and also mentioned as a bonus in the assessment description.
+#### TL;DR
+This project has been created based on AI-Bee assessment. I did not add authentication because I think it's not something it's not something tricky and also mentioned as a bonus in the assessment description.  
+
 Implemented:
-[x] Complete CRUD operations API for each entity. (Editable category and product)
-[x] Dynamic depth, to finding a proper discount on categories. (consider 2 layers, But you’re more than welcome to show your talent :) | n-1 selects problem)
-[x] Using Nest.js.
-[x] Using Postgresql.
-[x] Model relations implementation using typeOrm.
-[x] Seeder command.
-[x] Having a swagger.
-[x] Dockerized app. (Docker file and docker-compose)
-[x] Complete unit tests.
-[x] Readable documentation in readme file.
-[x] What next? (At the end of this file)
+- [x] Complete CRUD operations API for each entity. (Editable category and product)  
+- [x] Dynamic depth, to finding a proper discount on categories. (consider 2 layers, But you’re more than welcome to show your talent :) | n-1 selects problem)
+- [x] Using Nest.js.  
+- [x] Using Postgresql.  
+- [x] Model relations implementation using typeOrm.  
+- [x] Seeder command.  
+- [x] Having a swagger.  
+- [x] Dockerized app. (Docker file and docker-compose)  
+- [x] Complete unit tests.  
+- [x] Readable documentation in readme file.  
+- [x] What next? (At the end of this file)  
 
-
+  
 ## Installation
 First things first, create a file with `.env` name in root directory like `.env.example` file.  
 Run the below command to install dependencies:
