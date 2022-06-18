@@ -3,7 +3,7 @@ Albee assessment project.
 
 ## Discriminator
 #### TL;DR
-This project has been created based on AI-Bee assessment. I did not add authentication because I think it's not something it's not something tricky and also mentioned as a bonus in the assessment description.  
+This project has been created based on AI-Bee roles. I did not add authentication because I think it's not something it's not something tricky and also mentioned as a bonus in the assessment description.  
 
 Implemented:
 - [x] Complete CRUD operations API for each entity. (Editable category and product)  
